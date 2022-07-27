@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="" rel="stylesheet">
+    <style>
+      .g-sprite {
+        width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .m-item {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+        margin: 2px;
+      }
+
+      svg {
+        transition: .2s ease;
+        cursor: pointer;
+      }
+
+      svg:hover {
+        transform: scale(1.2);
+        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="g-sprite">
+      
+    </div>
+  </body>
+
+
+  <script>
+    const modle =(id)=> `<div class="m-item"><svg className="m-svg" width="32" height="32" viewBox="0 0 24 24"><use xlink:href="./sprite.svg#${id}" /></svg></div>`
+
+    function readTextFile(file, callback) {
+      var rawFile = new XMLHttpRequest();
+      rawFile.overrideMimeType("application/json");
+      rawFile.open("GET", file, true);
+      rawFile.onreadystatechange = function() {
+          if (rawFile.readyState === 4 && rawFile.status == "200") {
+              callback(rawFile.responseText);
+          }
+      }
+      rawFile.send(null);
+    }
+
+    readTextFile("sprite.json", function(text){
+        var data = JSON.parse(text);
+        console.log(data);
+
+        let root = document.querySelector('.g-sprite')
+
+        data.map((item,i)=>{
+          root.innerHTML += modle(item)
+        })
+    });
+  </script>
+</html>
