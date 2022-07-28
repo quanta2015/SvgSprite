@@ -3,21 +3,18 @@ var xml2js = require('xml2js');
 var ps = xml2js.parseString;
 var builder = new xml2js.Builder();
 
-
-const PATH_SVG  = 'icomoon'
-const FILE_SVG  = 'sprite.svg'
-const FILE_JSON = 'sprite.json'
-const SIZE_SVG  = 20
+const SIZE_SVG  = 24
+const XMLNS     = "http://www.w3.org/2000/svg"
+const NORM_SVG  = 'normal'
+const THIN_SVG  = 'thin'
+const FILE_SVG  =(e)=> `svg/sprite_${e}.svg`
+const FILE_JSON =(e)=> `svg/sprite_${e}.json`
 
 const getPath =async(e)=>{
   return new Promise(resolve => {
     ps(e, function (err, r) {
-      let np = []
-      r.svg.path.map((item,i)=>{
-        let {fill,...o} = item['$']
-        np.push({'$': o})
-      })
-      resolve(np)
+      let {$,title,...list}=r.svg
+      resolve(list)
     })
   })
 }
@@ -31,24 +28,26 @@ const patchFile = async(path,data,list)=>{
 
       let id = f.split('.')[0]
       let d = fs.readFileSync(`${path}/${f}`)
-      let p = await getPath(d)
-      data.push({path: p, $: {id},})
+      let p = await getPath(d, id)
+      
+      data.push({$:{id}, ...p})
       list.push(id)
     }) 
   )
 }
 
-const init = async() => {
+
+const init = async(file) => {
   let data = []
   let list = []
-  await patchFile(`${__dirname}/${PATH_SVG}`,data,list)
+  await patchFile(`${__dirname}/src/${file}`,data,list)
 
-  console.log(list)
-  let ret = { svg:{ symbol: data, $: {viewBox:`0 0 ${SIZE_SVG} ${SIZE_SVG}`,xmlns:"http://www.w3.org/2000/svg"} }}
+  let ret = { svg: {symbol:data, $: {viewBox:`0 0 ${SIZE_SVG} ${SIZE_SVG}`,xmlns:XMLNS }}} 
   let xml = builder.buildObject(ret);
-  fs.writeFileSync(FILE_SVG,xml)
-  fs.writeFileSync(FILE_JSON,JSON.stringify(list))
+  fs.writeFileSync(FILE_SVG(file),xml)
+  fs.writeFileSync(FILE_JSON(file),JSON.stringify(list))
 }
 
 
-init()
+init(NORM_SVG)
+init(THIN_SVG)

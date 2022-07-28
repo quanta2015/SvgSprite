@@ -1,13 +1,10 @@
 {
   "name": "suo-svg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "_xml2js@0.4.23@xml2js": "^0.4.23",
     "xml2js": "^0.4.23",
-    "_sax@1.2.4@sax": "^1.2.4",
-    "_xmlbuilder@11.0.1@xmlbuilder": "^11.0.1",
     "xmlbuilder": "^11.0.1",
     "sax": "^1.2.4"
   },

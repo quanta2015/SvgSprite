@@ -5,21 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="" rel="stylesheet">
     <style>
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 10px 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+      }
       .g-sprite {
-        width: 800px;
+        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        margin: 0 10px;
       }
 
       .m-item {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #eee;
         margin: 2px;
+        border-radius: 3px;
       }
 
       svg {
@@ -35,36 +45,48 @@
     </style>
   </head>
   <body>
-    <div class="g-sprite">
+    <div class="title">标准图标</div>
+    <div class="g-sprite g-sprite-n">
       
     </div>
+
+    <div class="title">细长图标</div>
+    <div class="g-sprite g-sprite-t">
+      
+    </div>
+
+
   </body>
 
 
   <script>
-    const modle =(id)=> `<div class="m-item"><svg className="m-svg" width="32" height="32" viewBox="0 0 24 24"><use xlink:href="./sprite.svg#${id}" /></svg></div>`
+    const model =(id,file,size)=> `<div class="m-item"><svg className="m-svg" width="32" height="32" viewBox="0 0 ${size} ${size}"><use xlink:href="svg/sprite_${file}.svg#${id}" /></svg></div>`
 
-    function readTextFile(file, callback) {
-      var rawFile = new XMLHttpRequest();
-      rawFile.overrideMimeType("application/json");
-      rawFile.open("GET", file, true);
-      rawFile.onreadystatechange = function() {
-          if (rawFile.readyState === 4 && rawFile.status == "200") {
-              callback(rawFile.responseText);
-          }
-      }
-      rawFile.send(null);
+    const readTextFile =async(file) => {
+      return new Promise(resolve => {
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
+            if (rawFile.readyState === 4 && rawFile.status == "200") {
+                // callback(rawFile.responseText);
+                resolve(rawFile.responseText)
+            }
+        }
+        rawFile.send(null);
+      })
     }
 
-    readTextFile("sprite.json", function(text){
-        var data = JSON.parse(text);
-        console.log(data);
+    const init =async(file,el,size)=>{
+      let root = document.querySelector(el)
+      const r = await readTextFile(`svg/sprite_${file}.json`)
+      const data = JSON.parse(r);
+      data.map((item,i)=>  root.innerHTML += model(item,file,size) )
+    }
 
-        let root = document.querySelector('.g-sprite')
+    init('normal','.g-sprite-n',24)
+    init('thin','.g-sprite-t',20)
 
-        data.map((item,i)=>{
-          root.innerHTML += modle(item)
-        })
-    });
+   
   </script>
 </html>
