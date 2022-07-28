@@ -4,10 +4,10 @@ var ps = xml2js.parseString;
 var builder = new xml2js.Builder();
 
 
-const PATH_SVG = 'icomoon'
-const FILE_SVG = 'sprite.svg'
+const PATH_SVG  = 'icomoon'
+const FILE_SVG  = 'sprite.svg'
 const FILE_JSON = 'sprite.json'
-const SIZE_SVG = 20
+const SIZE_SVG  = 20
 
 const getPath =async(e)=>{
   return new Promise(resolve => {

@@ -1,0 +1,28 @@
+{
+  "name": "suo-svg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "_xml2js@0.4.23@xml2js": "^0.4.23",
+    "xml2js": "^0.4.23",
+    "_sax@1.2.4@sax": "^1.2.4",
+    "_xmlbuilder@11.0.1@xmlbuilder": "^11.0.1",
+    "xmlbuilder": "^11.0.1",
+    "sax": "^1.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quanta2015/SvgSprite.git"
+  },
+  "author": "liyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quanta2015/SvgSprite/issues"
+  },
+  "homepage": "https://github.com/quanta2015/SvgSprite#readme"
+}
