@@ -5,20 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="" rel="stylesheet">
     <style>
+      :root {
+        --sys-wid:1500px;
+      }
       .title {
+        color: #336699;
+        position: absolute;
+        left: -70px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
         font-size: 20px;
         font-weight: bold;
         color: #333;
-        margin: 10px 10px 20px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 10px;
       }
       .g-sprite {
-        width: 100%;
+        position: relative;
+        width: var(--sys-wid);
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-        margin: 0 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+      }
+
+      .g-sprite+.g-sprite {
+        margin-top: 10px;
       }
 
       .m-item {
@@ -33,11 +47,11 @@
       }
 
       .m-item.sp {
-        width: 192px;
-        height: 192px;
+        width: 128px;
+        height: 128px;
         border: 1px solid #eee;
         margin: 5px;
-        background: #E8EAF0;
+        background: #fff;
       }
 
       .m-item.sp svg {
@@ -58,19 +72,24 @@
     </style>
   </head>
   <body>
+    
 
-    <div class="title">suo64</div>
-    <div class="g-sprite g-sprite-s64"></div>
+    
+    <div class="g-sprite g-sprite-n">
+      <div class="title">标准</div>
+    </div>
+    
+    <div class="g-sprite g-sprite-t">
+      <div class="title">细长</div>
+    </div>
+    
+    <div class="g-sprite g-sprite-s24">
+      <div class="title">suo24</div>
+    </div>
 
-    <div class="title">suo24</div>
-    <div class="g-sprite g-sprite-s24"></div>
-
-    <div class="title">标准图标</div>
-    <div class="g-sprite g-sprite-n"></div>
-
-    <div class="title">细长图标</div>
-    <div class="g-sprite g-sprite-t"></div>
-
+    <div class="g-sprite g-sprite-s64">
+      <div class="title">suo64</div>
+    </div>
 
   </body>
 
