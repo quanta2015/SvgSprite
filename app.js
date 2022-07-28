@@ -3,12 +3,14 @@ var xml2js = require('xml2js');
 var ps = xml2js.parseString;
 var builder = new xml2js.Builder();
 
-const SIZE_SVG  = 24
-const XMLNS     = "http://www.w3.org/2000/svg"
-const NORM_SVG  = 'normal'
-const THIN_SVG  = 'thin'
-const FILE_SVG  =(e)=> `svg/sprite_${e}.svg`
-const FILE_JSON =(e)=> `svg/sprite_${e}.json`
+const SIZE_SVG   = 24
+const XMLNS      = "http://www.w3.org/2000/svg"
+const FILE_SVG   =(e)=> `svg/sprite_${e}.svg`
+const FILE_JSON  =(e)=> `svg/sprite_${e}.json`
+const NORM_SVG   = 'normal'
+const THIN_SVG   = 'thin'
+const SUO24_SVG  = 'suo24'
+const SUO64_SVG  = 'suo64'
 
 const getPath =async(e)=>{
   return new Promise(resolve => {
@@ -51,3 +53,6 @@ const init = async(file) => {
 
 init(NORM_SVG)
 init(THIN_SVG)
+init(SUO24_SVG)
+init(SUO64_SVG)
+

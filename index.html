@@ -32,6 +32,19 @@
         border-radius: 3px;
       }
 
+      .m-item.sp {
+        width: 192px;
+        height: 192px;
+        border: 1px solid #eee;
+        margin: 5px;
+        background: #E8EAF0;
+      }
+
+      .m-item.sp svg {
+        transform: unset!important;
+        filter: unset!important;
+      }
+
       svg {
         transition: .2s ease;
         cursor: pointer;
@@ -45,22 +58,25 @@
     </style>
   </head>
   <body>
+
+    <div class="title">suo64</div>
+    <div class="g-sprite g-sprite-s64"></div>
+
+    <div class="title">suo24</div>
+    <div class="g-sprite g-sprite-s24"></div>
+
     <div class="title">标准图标</div>
-    <div class="g-sprite g-sprite-n">
-      
-    </div>
+    <div class="g-sprite g-sprite-n"></div>
 
     <div class="title">细长图标</div>
-    <div class="g-sprite g-sprite-t">
-      
-    </div>
+    <div class="g-sprite g-sprite-t"></div>
 
 
   </body>
 
 
   <script>
-    const model =(id,file,size)=> `<div class="m-item"><svg className="m-svg" width="32" height="32" viewBox="0 0 ${size} ${size}"><use xlink:href="svg/sprite_${file}.svg#${id}" /></svg></div>`
+    const model =(id,file,size,sp)=> `<div class="m-item ${sp}"><svg className="m-svg" width="${sp?256:32}" height="${sp?256:32}" viewBox="0 0 ${size} ${size}"><use xlink:href="svg/sprite_${file}.svg#${id}" /></svg></div>`
 
     const readTextFile =async(file) => {
       return new Promise(resolve => {
@@ -77,15 +93,17 @@
       })
     }
 
-    const init =async(file,el,size)=>{
+    const init =async(file,el,size,sp)=>{
       let root = document.querySelector(el)
       const r = await readTextFile(`svg/sprite_${file}.json`)
       const data = JSON.parse(r);
-      data.map((item,i)=>  root.innerHTML += model(item,file,size) )
+      data.map((item,i)=>  root.innerHTML += model(item,file,size,sp) )
     }
 
     init('normal','.g-sprite-n',24)
     init('thin','.g-sprite-t',20)
+    init('suo24','.g-sprite-s24',24)
+    init('suo64','.g-sprite-s64',64,'sp')
 
    
   </script>
