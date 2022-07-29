@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { AutoComplete } = require('enquirer');
-
+const { spawn } = require("child_process");
 const CrReset  = "\x1b[0m"
 const FgYellow = "\x1b[33m"
 const FgWhite  = "\x1b[1m"
@@ -74,7 +74,7 @@ const version = async()=> {
 const run =async()=>{
   await version()
 
-  await cmd(CMD_ADDFILE, null)
+  await cmd(CMD_ADDFILE, 'succ add files...')
 }
 
 run()
