@@ -3,6 +3,6 @@
 
 exec 1>&2
 exec < /dev/tty
-node app.js
+node build.js
 node script/preCommit.js
 git add .
