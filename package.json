@@ -1,25 +1,27 @@
 {
-  "name": "suo-svg",
-  "version": "1.0.3",
-  "description": "",
-  "main": "app.js",
-  "dependencies": {
-    "xml2js": "^0.4.23",
-    "xmlbuilder": "^11.0.1",
-    "sax": "^1.2.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quanta2015/SvgSprite.git"
-  },
-  "author": "liyang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/quanta2015/SvgSprite/issues"
-  },
-  "homepage": "https://github.com/quanta2015/SvgSprite#readme"
+    "name": "suo-svg",
+    "version": "1.0.5",
+    "description": "",
+    "main": "app.js",
+    "dependencies": {
+        "enquirer": "^2.3.6",
+        "sax": "^1.2.4",
+        "xml2js": "^0.4.23",
+        "xmlbuilder": "^11.0.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "build": "git commit -m 'update'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quanta2015/SvgSprite.git"
+    },
+    "author": "liyang",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/quanta2015/SvgSprite/issues"
+    },
+    "homepage": "https://github.com/quanta2015/SvgSprite#readme"
 }

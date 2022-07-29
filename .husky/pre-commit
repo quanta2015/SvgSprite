@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+exec 1>&2
+exec < /dev/tty
+node app.js
+node script/preCommit.js
+git add .
