@@ -4,3 +4,6 @@ exports.Svg = ({id, size, color}) => (
        <use xlinkHref={`${sprite}#${id}`} />
    </svg>
 );
+
+
+exports.txt = 'aaaaaa'
