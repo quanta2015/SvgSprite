@@ -1,8 +1,8 @@
 {
     "name": "suo-svg",
-    "version": "1.0.19",
+    "version": "1.0.21",
     "description": "",
-    "main": "app.js",
+    "main": "index.js",
     "dependencies": {
         "enquirer": "^2.3.6",
         "sax": "^1.2.4",
