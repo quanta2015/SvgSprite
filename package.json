@@ -1,11 +1,13 @@
 {
     "name": "suo-svg",
-    "version": "1.0.21",
+    "version": "1.0.23",
     "description": "",
     "main": "index.js",
     "dependencies": {
         "enquirer": "^2.3.6",
+        "react": "^18.2.0",
         "sax": "^1.2.4",
+        "webpack": "^5.74.0",
         "xml2js": "^0.4.23",
         "xmlbuilder": "^11.0.1"
     },
