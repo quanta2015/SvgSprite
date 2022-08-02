@@ -1,6 +1,6 @@
 {
     "name": "suo-svg",
-    "version": "1.0.24",
+    "version": "1.0.25",
     "description": "",
     "main": "build/index.cjs.js",
     "module": "build/index.esm.js",
@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "build": "npx rollup -c",
-        "save": "git commit -m 'update'",
+        "save": "git add . && git commit -m 'update'",
         "upload": "npm version patch && npm publish"
     },
     "repository": {
@@ -100,6 +100,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
+        "@rollup/plugin-babel": "^5.3.1",
         "enquirer": "^2.3.6"
     }
 }

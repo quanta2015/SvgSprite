@@ -4,9 +4,11 @@ import React from 'react';
 const Svg = ({
   id, size, color, sprite,
 }) => (
-  <svg className="m-svg" fill={color} width={size} height={size} viewBox="0 0 24 24">
-    <use xlinkHref={`${sprite}#${id}`} />
+  <svg className="m-svg" fill={color} width={'100%'} height={'100%'} viewBox={`0 0 ${size} ${size}`}>
+       <use xlinkHref={`${sprite}#${id}`} />
   </svg>
 );
 
 export default Svg;
+
+
