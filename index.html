@@ -95,7 +95,12 @@
 
 
   <script>
-    const model =(id,file,size,sp)=> `<div class="m-item ${sp}"><svg className="m-svg" width="${sp?256:32}" height="${sp?256:32}" viewBox="0 0 ${size} ${size}"><use xlink:href="svg/sprite_${file}.svg#${id}" /></svg></div>`
+    const doPaste =(e)=>{
+      // console.log(e)
+      // e.clipboardData.setData('text/plain', e);
+      navigator.clipboard.writeText(e);
+    }
+    const model =(id,file,size,sp)=> `<div class="m-item ${sp}" onClick=doPaste('${id}',this)><svg className="m-svg" width="${sp?256:32}" height="${sp?256:32}" viewBox="0 0 ${size} ${size}"><use xlink:href="svg/sprite_${file}.svg#${id}" /></svg></div>`
 
     const readTextFile =async(file) => {
       return new Promise(resolve => {
