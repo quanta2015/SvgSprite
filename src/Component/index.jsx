@@ -1,10 +1,9 @@
 import React from 'react';
-// import sprite from '../../svg/sprite_suo24.svg'
 
 const Svg = ({
-  id, size, color, sprite,
+  id, size='100%', color='#eee', sprite,
 }) => (
-  <svg className="m-svg" fill={color} width={'100%'} height={'100%'} viewBox={`0 0 ${size} ${size}`}>
+  <svg className="m-svg" fill={color} width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
        <use xlinkHref={`${sprite}#${id}`} />
   </svg>
 );
