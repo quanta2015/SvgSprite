@@ -1,6 +1,6 @@
 {
     "name": "suo-svg",
-    "version": "1.0.29",
+    "version": "1.0.30",
     "description": "",
     "main": "build/index.cjs.js",
     "module": "build/index.esm.js",
