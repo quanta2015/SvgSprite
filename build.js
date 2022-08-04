@@ -52,7 +52,7 @@ const init = async(file) => {
 
 
 init(NORM_SVG)
-init(THIN_SVG)
+// init(THIN_SVG)
 init(SUO24_SVG)
 init(SUO64_SVG)
 
