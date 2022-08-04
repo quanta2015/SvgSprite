@@ -2,7 +2,38 @@
 目前工程中使用的图标，大部分都是 svg类型，随着资源数据的增加，导致每个项目都要引入大量的图标文件，而且一个页面中如果有多个图片资源，也会导致多次的服务器资源请求，影响页面的加载时间。为了减少资源请求的次数，以及规范化项目的内容，采用 SVG Sprite技术，将图片资源整个成为一个 SVG文件。
 
 
-### 1. 生成 Svg Sprite 资源文件
+
+
+### 目录结构
+
+```
+├── build.js
+├── index.html
+├── script
+├── src
+│   ├── Component      Svg 组件
+│   ├── index.js       组件声明
+│   ├── normal         普通 svg 库
+│   ├── suo24          所思 svg 库(24pix) 
+│   ├── suo64          所思 svg 库(64pix) 
+│   └── thin           细长 svg 库     
+├── svg                编译生成的SVG Sprite
+└── tools
+    ├── ColorFilter    色彩生成工具
+    └── svg.js         全局注入svg
+```
+
+
+### 使用方法
+
+1. 根据项目需求可以在 `src` 目录下的 `normal`、`suo24`、`suo64`和`thin`文件夹中添加 svg 图标
+2. 通过执行 `node build` 将 `svg` 编译成 `SVGSprite`, 生成位置在 `svg\` 目录
+3. 项目使用之前通过 `npm i suo-svg` 安装库
+4. React项目可以通过 `单色` 或者 `双色` 方式进行调用,具体范例如下 
+
+
+
+### Svg Sprite 资源文件结构
 `SVG Sprite` 的结构是将原 svg 文件代码中的 `path` 和 `stroke` 对象作为 `symbol` 对象的内容引入，每个 `symbol` 对象设置一个单独的 `id` 引用。
 
 > 注意：不能加 fill属性
@@ -21,10 +52,10 @@
 ```
 
 
-### 2. 引用方法
+### React 引用方法
 在 React 工程中，只要引入 `Svg Sprite` 资源文件，然后用下面两种方法调用：
 
-- 单色SVG: 传入 `color`、`size`、`id` 参数即可
+- 单色SVG: 传入 `color`、`size`、`id` 参数即可，`size` 默认值 `100%`, `color` 默认值 `#eee`
 - 双色SVG: 传入 `color`、`size`、`id` 参数，然后在 `css` 中，指定 `m-svg` 元素的 `color` 属性来控制第二种颜色，前面 `color` 是第一种颜色
 
 ```
@@ -44,15 +75,19 @@ return (
 )
 
 
-
 .m-svg {
   color: var(--clr-main);
 }
 ```
 
 
+### Svg Sprite ID
+`Svg Sprite`的 ID 是根据文件名生成的，可以打开 `index.html` ，通过点击图标获取其 `ID`。
+
+
 
 # SVG 色彩控制
+除了 `SvgSprite` 之外，传统还有两种方式来使用 `Svg` 图标。
 
 
 ### 1. SVG 嵌入模式
@@ -87,7 +122,10 @@ L:  100 + (51.2 - 60.0)  ->   91.2%  (relative to base 100% = -8.8%)
 /*      ------ base color ------  -------  target color ------------------------------*/
 filter: brightness(50%) sepia(1)  hue-rotate(132deg) saturate(103.2%) brightness(91.2%);
 ```
+
 根据上述原理，只要将项目的 `svg` 图像都设置为白色，即 `fill: #ffffff` ,然后设置 `filter` 就可以得到相应的颜色。
+
+> 项目的 tools 目录提供了色彩过滤工具，用来计算目标色彩
 
 
 #### 2.2 load-file
