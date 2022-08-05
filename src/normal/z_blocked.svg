@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1.23077,0,0,1.23077,-2.76923,-2.76923)">
-        <path d="M12,21.75C6.616,21.75 2.25,17.385 2.25,12C2.25,6.615 6.616,2.25 12,2.25C17.385,2.25 21.75,6.615 21.75,12C21.75,17.385 17.385,21.75 12,21.75ZM12,19.5C13.594,19.5 15.146,18.99 16.429,18.044L5.957,7.573C5.011,8.855 4.5,10.407 4.5,12C4.5,16.114 7.886,19.5 12,19.5ZM12,4.5C10.394,4.5 8.831,5.018 7.544,5.978L18.023,16.457C18.982,15.169 19.5,13.606 19.5,12C19.5,7.886 16.114,4.5 12,4.5Z" style="fill-rule:nonzero;"/>
-    </g>
-</svg>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M12 24C5.374 24 0 18.628 0 12S5.374 0 12 0c6.628 0 12 5.372 12 12s-5.372 12-12 12zm0-2.77a9.185 9.185 0 005.451-1.791L4.562 6.55A9.179 9.179 0 002.77 12c0 5.063 4.168 9.23 9.231 9.23zm0-18.46c-1.977 0-3.9.637-5.484 1.818l12.897 12.898A9.185 9.185 0 0021.23 12c0-5.063-4.168-9.23-9.231-9.23z" fill-rule="nonzero"/></svg>
